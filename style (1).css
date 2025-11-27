@@ -1,0 +1,43 @@
+
+:root{
+  --gold:#D4AF37;
+  --black:#000;
+  --bg:#0b0b0b;
+  --muted:#ddd;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--muted);font-family:Inter, Arial, sans-serif;line-height:1.5}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:linear-gradient(90deg,#000, #111);border-bottom:3px solid var(--gold)}
+.logo img{height:60px;display:block}
+.brand h1{margin:0;color:var(--gold);letter-spacing:1px}
+.brand p{margin:2px 0 0;color:#fff;opacity:.9}
+.whatsapp-btn{background:linear-gradient(90deg,var(--gold),#f7d06b);color:#000;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+.hero{display:flex;gap:20px;padding:40px 28px;align-items:center}
+.hero-content{flex:1}
+.hero h2{font-size:28px;margin:0;color:#fff}
+.btn{background:var(--gold);color:#000;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:700;margin-right:8px}
+.btn.outline{background:transparent;border:2px solid var(--gold);color:var(--gold)}
+.reveal{opacity:0;transform:translateY(18px);animation:reveal 0.9s forwards;animation-delay:0.2s}
+.reveal.delay{animation-delay:0.45s}
+.reveal.delay2{animation-delay:0.75s}
+.reveal.delay3{animation-delay:1s}
+@keyframes reveal{to{opacity:1;transform:none}}
+.pulse{width:220px;height:140px;border-radius:8px;background:linear-gradient(135deg,#111,#222);box-shadow:0 10px 40px rgba(0,0,0,.6);border:4px solid rgba(212,175,55,.12);}
+
+/* sections */
+.section-anim{padding:36px 28px;border-top:1px solid rgba(255,255,255,0.03)}
+.services ul{list-style:disc;padding-left:18px;color:#fff}
+.gallery .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.gallery img{width:100%;height:140px;object-fit:cover;border-radius:6px;border:2px solid rgba(212,175,55,0.08)}
+.card{background:#0e0e0e;padding:6px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+.card .caption{font-size:12px;color:#ccc;padding-top:6px;text-align:center}
+.before-after .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ba-item{background:#0e0e0e;padding:16px;border-radius:8px;text-align:center;color:#fff}
+.img-ph{height:160px;border-radius:6px;background:linear-gradient(90deg,#111,#1a1a1a);display:flex;align-items:center;justify-content:center;border:2px dashed rgba(255,255,255,0.04);color:#aaa}
+footer{text-align:center;padding:20px;color:#777}
+
+/* responsive */
+@media(max-width:800px){
+  .hero{flex-direction:column;text-align:center}
+  .site-header{flex-direction:column;gap:10px;align-items:center}
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Get Quotation - Nirmal Enterprises</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="logo"><img src="images/logo.png" alt="logo" /></div>
+  <div class="brand"><h1>Nirmal Enterprises</h1></div>
+</header>
+<main style="padding:24px;background:#000;min-height:60vh">
+  <h2 style="color:var(--gold)">Quotation Request</h2>
+  <form id="qform" style="max-width:760px">
+    <label>Client Name</label><br><input id="name" type="text" style="width:100%;padding:8px"><br><br>
+    <label>Phone</label><br><input id="phone" type="text" style="width:100%;padding:8px"><br><br>
+    <label>Site Address</label><br><input id="site" type="text" style="width:100%;padding:8px"><br><br>
+    <label>Work Description</label><br><textarea id="work" style="width:100%;padding:8px;height:80px"></textarea><br><br>
+    <label>Estimated Area (sq.ft)</label><br><input id="area" type="number" style="width:100%;padding:8px"><br><br>
+    <button type="button" id="gen" class="btn">Generate PDF Quotation</button>
+  </form>
+</main>
+<script>
+const {{ jsPDF }} = window.jspdf;
+document.getElementById('gen').addEventListener('click', function(){
+  const name = document.getElementById('name').value || '—';
+  const phone = document.getElementById('phone').value || '—';
+  const site = document.getElementById('site').value || '—';
+  const work = document.getElementById('work').value || '—';
+  const area = document.getElementById('area').value || '—';
+  const doc = new jsPDF();
+  doc.setFontSize(16);
+  doc.text('Nirmal Enterprises — Quotation', 14, 20);
+  doc.setFontSize(11);
+  doc.text(`Client: ${name}`, 14, 34);
+  doc.text(`Phone: ${phone}`, 14, 42);
+  doc.text(`Site: ${site}`, 14, 50);
+  doc.text('Work Description:', 14, 66);
+  doc.text(work, 14, 74, {maxWidth: 180});
+  doc.text(`Estimated Area: ${area} sq.ft`, 14, 110);
+  doc.text('Rates (Sample): Slab ₹20/sq.ft | Beam ₹25/sq.ft | Column ₹1200 each', 14, 126);
+  doc.text('Terms: 20% advance. Transport extra.', 14, 140);
+  doc.save('Quotation_Nirmal_Enterprises.pdf');
+});
+</script>
+</body>
+</html>
